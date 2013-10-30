@@ -3,20 +3,12 @@
 var app = app || {};
 
 $(function() {
-
-
-  // We need a way to format the date in our blog templates.
-  Handlebars.registerHelper('dateFormat', function(context, block) {
-    var date = new Date(context);
-    return (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-  });
-
-
+  console.log('document ready funct')
   // create the app's router from the Router construct
   app.router = new app.Router();
 
   // start our backbone history
-  Backbone.history.start({pushState: Modernizr.history});
+  Backbone.history.start()//{pushState: Modernizr.history});
 
   // Shows how you can capture the event when a URL change occurs
   Backbone.history.on('route', function() {

@@ -384,4 +384,4 @@ function drawGame() {
   $('#scene').parallax();
 
 }
-drawGame();
+// drawGame();
