@@ -1,7 +1,7 @@
-// var me, layer, stage;
+ // var me, layer, stage;
 // var drawGame;
-
-$(function() {
+var stage;
+function drawGame() {
 // var drawGame = function() {
   var HEIGHT = window.innerHeight;
   var WIDTH = window.innerWidth;
@@ -66,7 +66,7 @@ $(function() {
     })
   }
 
-  var stage = new Kinetic.Stage({
+  stage = new Kinetic.Stage({
     container: 'stage-container',
     width: WIDTH,
     height: HEIGHT
@@ -383,5 +383,5 @@ $(function() {
   // makeRectBg();
   $('#scene').parallax();
 
-});
-// drawGame();
+}
+drawGame();
