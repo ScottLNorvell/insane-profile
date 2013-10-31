@@ -9,6 +9,17 @@ app.HomeView = Backbone.View.extend({
 
   render: function() {
     this.$el.html('');
-    drawGame();
+    // Here we'll load my face and onload, we'll draw Home!
+    drawings.drawHome();
+
+    drawings.makeCircleBG();
+    // drawings.makeRectBg();
+    $('#scene').parallax();
+  },
+
+  destroy: function() {
+    this.undelegateEvents();
+    this.$el.removeData().unbind();
   }
+  
 });
