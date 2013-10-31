@@ -8,14 +8,12 @@ app.Router = Backbone.Router.extend({
     'about': 'about',
     'apps': 'apps',
     'blog': 'blog',
-    'experimental': 'experimental',
-
+    'experimental': 'experimental'
   },
 
   // Index action: renders the AppView with the collection of test posts
   index: function() {
     // Create our main index view and give it our seed/test collection
-    console.log('in the index')
     app.home_view = new app.HomeView();
     // Render the view
     app.home_view.render();
@@ -35,7 +33,6 @@ app.Router = Backbone.Router.extend({
 
   experimental: function() {
     console.log('experimental!')
-
   }
 
 });

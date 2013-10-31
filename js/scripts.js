@@ -1,6 +1,6 @@
  // var me, layer, stage;
 // var drawGame;
-var stage;
+var drawings = {
 function drawGame() {
 // var drawGame = function() {
   var HEIGHT = window.innerHeight;
@@ -382,6 +382,8 @@ function drawGame() {
   makeCircleBG();
   // makeRectBg();
   $('#scene').parallax();
+
+}
 
 }
 // drawGame();

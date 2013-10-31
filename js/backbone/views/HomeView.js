@@ -8,7 +8,7 @@ app.HomeView = Backbone.View.extend({
   },
 
   render: function() {
-    this.$el.html('')
+    this.$el.html('');
     drawGame();
   }
 });

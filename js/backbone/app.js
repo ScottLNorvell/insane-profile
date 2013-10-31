@@ -3,7 +3,6 @@
 var app = app || {};
 
 $(function() {
-  console.log('document ready funct')
   // create the app's router from the Router construct
   app.router = new app.Router();
 
