@@ -9,28 +9,34 @@
 	<script src="js/jquery.parallax.min.js" defer></script>
 	<script src="js/underscore.js" ></script>
 	<script src="js/backbone.js" ></script>
+	<script src="js/handlebars.js" ></script>
+	<script src="js/templatesfolder/templates.js"></script>
 	<script src="js/kinetic.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="js/drawings.js"></script>
 </head>
 <body>
 	<!-- <div class="background"></div> -->
-	<div id="container" class="container">
-		<ul id="scene" class="scene">
+
+	<div id="bg-container" class="container">
+		<!-- <ul id="scene" class="scene">
 			<li class="layer" id="layer1" data-depth="1.00"></li>
 			<li class="layer" id="layer2" data-depth="0.80"></li>
 			<li class="layer" id="layer3" data-depth="0.60"></li>
 			<li class="layer" id="layer4" data-depth="0.40"></li>
 			<li class="layer" id="layer5" data-depth="0.20"></li>
 			<li class="layer" id="layer6" data-depth="0.00"></li>
-		</ul>
+		</ul> -->
 	</div>
 	<div id="stage-container"></div>
+	<div id="trans-container"></div>
 	<script src="js/backbone/app.js"></script>
 	<script src="js/backbone/routers/Router.js"></script>
 	<script src="js/backbone/views/AboutView.js"></script>
 	<script src="js/backbone/views/AppsView.js"></script>
 	<script src="js/backbone/views/BlogView.js"></script>
+	<script src="js/backbone/views/BGView.js"></script>
 	<script src="js/backbone/views/ExperimentalView.js"></script>
 	<script src="js/backbone/views/HomeView.js"></script>
+	<script src="js/backbone/views/TransView.js"></script>
 </body>
 </html>

@@ -3,19 +3,28 @@ body {
 	padding: 0;
 }
 
-#container {
+#bg-container, #trans-container {
 	position: absolute;
 	top: 0;
 	left: 0;
 }
-
-.background {
+/* This is where the trans animation will go! */
+#transition {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	height: 100%;
-	background: url('http://th09.deviantart.net/images3/PRE/i/2004/150/e/d/WallNotebookPaper.jpg');
+/*	width: 1000px;
+	height: 1000px;*/
+	/*background: url('http://th09.deviantart.net/images3/PRE/i/2004/150/e/d/WallNotebookPaper.jpg');*/
+	/*background-color: #222;*/
+	z-index: 10000;
+}
+
+#trans-image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1000;
 }
 
 img {

@@ -12,14 +12,13 @@ app.HomeView = Backbone.View.extend({
     // Here we'll load my face and onload, we'll draw Home!
     drawings.drawHome();
 
-    drawings.makeCircleBG();
-    // drawings.makeRectBg();
-    $('#scene').parallax();
+    app.bg_view = new app.BGView({ bg: 'circle' })
+    app.bg_view.render()
   },
 
   destroy: function() {
     this.undelegateEvents();
     this.$el.removeData().unbind();
   }
-  
+
 });

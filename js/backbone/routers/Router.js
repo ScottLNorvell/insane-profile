@@ -8,7 +8,8 @@ app.Router = Backbone.Router.extend({
     'about': 'about',
     'apps': 'apps',
     'blog': 'blog',
-    'experimental': 'experimental'
+    'experimental': 'experimental',
+    'trans': 'transition'
   },
 
   // Index action: renders the AppView with the collection of test posts
@@ -25,19 +26,47 @@ app.Router = Backbone.Router.extend({
   
   about: function() {
     console.log('about!')
-    // 
+    if (app.about_view) {
+      app.about_view.destroy()
+    }
+
+    app.about_view = new app.AboutView();
+    app.about_view.render();
   },
 
   apps: function() {
     console.log('apps!')
+    if (app.apps_view) {
+      app.apps_view.destroy()
+    }
+
+    app.apps_view = new app.AppsView();
+    app.apps_view.render();
   },
 
   blog: function() {
-    console.log('blog!')
+    console.log('blog!');
+    if (app.blog_view) {
+      app.blog_view.destroy()
+    }
+
+    app.blog_view = new app.BlogView();
+    app.blog_view.render();
   },
 
   experimental: function() {
     console.log('experimental!')
+    if (app.experimental_view) {
+      app.experimental_view.destroy()
+    }
+
+    app.experimental_view = new app.ExperimentalView();
+    app.experimental_view.render();
+  },
+
+  transition: function() {
+    var tv = new app.TransView();
+    tv.render('http://placekitten.com/1280/640')
   }
 
 });

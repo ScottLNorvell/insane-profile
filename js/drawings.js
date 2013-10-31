@@ -161,7 +161,7 @@ var drawings = {
     }
 
     
-    
+    // add groups to layers, layers to stages!
     meGroup.add(me);
 
     $.each(lassos, function(k, v) {
@@ -251,6 +251,7 @@ var drawings = {
       }
     });
 
+    // need to refactor for more control!
     meGroup.on('dragend', function() {
       if (collided) {
         var c = collided;
@@ -306,8 +307,6 @@ var drawings = {
           }, 1000)
         }, 400)
         
-      } else {
-        // console.log('drat')
       }
     });
 
@@ -322,7 +321,7 @@ var drawings = {
       }
     }
 
-  },
+  }, // end of drawHome();
 
   // function for rendering the circle background
   makeCircleBG: function() {
@@ -354,10 +353,10 @@ var drawings = {
       stage.add(layer);
 
     })
-  },
+  }, // end of makeCircleBG
 
   // function for rendering the circle background
-  makeRectBg: function() {
+  makeRectBG: function() {
     var HEIGHT = window.innerHeight;
     var WIDTH = window.innerWidth;
     var layers = ['layer6', 'layer5', 'layer4', 'layer3', 'layer2', 'layer1']
@@ -388,5 +387,56 @@ var drawings = {
       stage.add(layer);
 
     })
-  }
+  }, // end of makeRectBG
+
+  transitionFlip:  {
+    
+    // we'll initialize this with an image so that we can customize!
+    initialize: function(image) {
+      this.duration = .7
+      this.HEIGHT = window.innerHeight;
+      this.WIDTH = window.innerWidth;
+      
+      this.panel = new Kinetic.Rect({
+        x: 0,
+        y: -1 * (this.HEIGHT + 20),
+        width: this.WIDTH,
+        height: this.HEIGHT,
+        fill: '#222',
+        stroke: 'green',
+        strokeWidth: 10 
+      });
+
+      var stage = new Kinetic.Stage({
+        container: 'transition',
+        width: this.WIDTH,
+        height: this.HEIGHT
+      });
+
+      this.layer = new Kinetic.Layer();
+      
+      this.layer.add(this.panel);
+      stage.add(this.layer);
+    },
+
+    panelDown: function() {
+      var downTween = new Kinetic.Tween({
+        node: this.panel,
+        duration: this.duration,
+        y: 0
+      });
+
+      return downTween
+    },
+
+    panelUp: function() {
+      var upTween = new Kinetic.Tween({
+        node: this.panel,
+        duration: this.duration,
+        y: this.HEIGHT + 20
+      });
+
+      return upTween
+    }
+  } 
 }
