@@ -423,7 +423,7 @@ var drawings = {
       var downTween = new Kinetic.Tween({
         node: this.panel,
         duration: this.duration,
-        y: 0
+        y: this.HEIGHT + 20
       });
 
       return downTween

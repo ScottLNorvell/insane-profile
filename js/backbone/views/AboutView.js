@@ -8,10 +8,12 @@ app.AboutView = Backbone.View.extend({
   },
 
   render: function() {
-    var template = Handlebars.getTemplate('about');
-    this.$el.html(template());
+    var $elem = this.$el;
     var tv = new app.TransView();
-    tv.render('http://placekitten.com/1280/640')
+    tv.render('images/me-sepia.jpg', function() {
+      var template = Handlebars.getTemplate('about');
+      $elem.html(template());
+    })
   },
 
   destroy: function() {
