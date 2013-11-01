@@ -18,6 +18,7 @@ app.Router = Backbone.Router.extend({
     if(app.home_view) {
       app.home_view.destroy();
     }
+    $('#bg-container').show();
     // Create our main index view and give it our seed/test collection
     app.home_view = new app.HomeView();
     // Render the view
@@ -64,9 +65,9 @@ app.Router = Backbone.Router.extend({
     app.experimental_view.render();
   },
 
-  transition: function() {
-    var tv = new app.TransView();
-    tv.render('http://placekitten.com/1280/640')
-  }
+  // transition: function() {
+  //   var tv = new app.TransView();
+  //   tv.render('http://placekitten.com/1280/640')
+  // }
 
 });

@@ -16,5 +16,15 @@ app.BGView = Backbone.View.extend({
     }
 
     $('#scene').parallax();
+    this.$el.fadeIn();
+  },
+
+  destroy: function() {
+    $('#scene').parallax('disable');
+    this.$el.unbind().hide().html('');
+  },
+
+  hide: function() {
+    this.$el.fadeOut('normal');
   }
 })

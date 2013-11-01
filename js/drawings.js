@@ -102,6 +102,13 @@ var drawings = {
     texts.ur.setX(WIDTH - texts.ur.getWidth() - padding);
     texts.lr.setX(WIDTH - texts.lr.getWidth() - padding);
 
+
+    $.each(texts, function(i,v) {
+      v.on('click', function() {
+        growAway(i);
+      })
+    })
+
     // avatar (this will load the text)
     var me = new Kinetic.Rect({
       x: WIDTH/2 - 50,
@@ -257,54 +264,17 @@ var drawings = {
         var c = collided;
         var tpos = texts[c].getAbsolutePosition();
         var lasso = lassos[c];
+        // detach the lasso to around the thing!
         lasso.setAbsolutePosition({
           x: tpos.x - padding/2,
           y: tpos.y - padding/2
         });
+        // Edit these colors!
         lasso.setFill('yellow');
-        texts[c].setFill('red');
+        // texts[c].setFill('red');
         layer.draw();
-        
         setTimeout(function() {
-          var t = texts[c];
-          t.moveTo(isoGroup);
-          
-          var growTween = new Kinetic.Tween({
-            node: t,
-            duration: 1,
-            fontSize: 500,
-            opacity: .5,
-            x: 0,
-            y: 0,
-            easing: Kinetic.Easings.EaseIn,
-            onFinish: function() {
-              var explodeTween = new Kinetic.Tween({
-                node: t,
-                fontSize: 2000,
-                duration: 1,
-                opacity: .1
-              });
-              explodeTween.play();
-            }
-          });
-          var fadeMe = new Kinetic.Tween({
-            node: meGroup,
-            duration: .5,
-            opacity: 0
-          });
-          var fadeText = new Kinetic.Tween({
-            node: textGroup,
-            duration: .5,
-            opacity: 0
-          });
-
-          fadeText.play();
-          fadeMe.play();
-          growTween.play();
-          setTimeout(function() {
-            // navigate to the applicable page!
-            app.router.navigate(t.getText().toLowerCase(), true)
-          }, 1000)
+          growAway(collided);
         }, 400)
         
       }
@@ -319,6 +289,39 @@ var drawings = {
       if (c.x > t.x - padding && c.x < t.x + W + padding && c.y > t.y - padding && c.y < t.y + H + padding) {        
         return true
       }
+    }
+
+    function growAway(corner) {
+      // setTimeout(function() {
+      var t = texts[corner];
+      t.moveTo(isoGroup);
+      
+      var growTween = new Kinetic.Tween({
+        node: t,
+        duration: 1,
+        fontSize: 500,
+        opacity: .5,
+        x: 0,
+        y: 0,
+        easing: Kinetic.Easings.EaseIn,
+        onFinish: function() {
+          app.router.navigate(t.getText().toLowerCase(), true)
+        }
+      });
+      var fadeMe = new Kinetic.Tween({
+        node: meGroup,
+        duration: .5,
+        opacity: 0
+      });
+      var fadeText = new Kinetic.Tween({
+        node: textGroup,
+        duration: .5,
+        opacity: 0
+      });
+
+      fadeText.play();
+      fadeMe.play();
+      growTween.play();
     }
 
   }, // end of drawHome();
@@ -355,7 +358,7 @@ var drawings = {
     })
   }, // end of makeCircleBG
 
-  // function for rendering the circle background
+  // function for rendering the rectangle background
   makeRectBG: function() {
     var HEIGHT = window.innerHeight;
     var WIDTH = window.innerWidth;
@@ -387,56 +390,5 @@ var drawings = {
       stage.add(layer);
 
     })
-  }, // end of makeRectBG
-
-  transitionFlip:  {
-    
-    // we'll initialize this with an image so that we can customize!
-    initialize: function(image) {
-      this.duration = .7
-      this.HEIGHT = window.innerHeight;
-      this.WIDTH = window.innerWidth;
-      
-      this.panel = new Kinetic.Rect({
-        x: 0,
-        y: -1 * (this.HEIGHT + 20),
-        width: this.WIDTH,
-        height: this.HEIGHT,
-        fill: '#222',
-        stroke: 'green',
-        strokeWidth: 10 
-      });
-
-      var stage = new Kinetic.Stage({
-        container: 'transition',
-        width: this.WIDTH,
-        height: this.HEIGHT
-      });
-
-      this.layer = new Kinetic.Layer();
-      
-      this.layer.add(this.panel);
-      stage.add(this.layer);
-    },
-
-    panelDown: function() {
-      var downTween = new Kinetic.Tween({
-        node: this.panel,
-        duration: this.duration,
-        y: this.HEIGHT + 20
-      });
-
-      return downTween
-    },
-
-    panelUp: function() {
-      var upTween = new Kinetic.Tween({
-        node: this.panel,
-        duration: this.duration,
-        y: this.HEIGHT + 20
-      });
-
-      return upTween
-    }
-  } 
+  } // end of makeRectBG
 }

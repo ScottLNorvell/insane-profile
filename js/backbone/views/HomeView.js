@@ -12,6 +12,9 @@ app.HomeView = Backbone.View.extend({
     // Here we'll load my face and onload, we'll draw Home!
     drawings.drawHome();
 
+    if (app.bg_view) {
+      app.bg_view.destroy();
+    }
     app.bg_view = new app.BGView({ bg: 'circle' })
     app.bg_view.render()
   },

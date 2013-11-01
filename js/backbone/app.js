@@ -5,6 +5,8 @@ var app = app || {};
 $(function() {
   // create the app's router from the Router construct
   app.router = new app.Router();
+  app.bg = $('#bg-container');
+  app.bg.hide();
 
   // start our backbone history
   Backbone.history.start()//{pushState: Modernizr.history});
