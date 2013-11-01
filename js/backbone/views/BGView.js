@@ -16,7 +16,7 @@ app.BGView = Backbone.View.extend({
     }
 
     $('#scene').parallax();
-    this.$el.fadeIn();
+    this.$el.fadeIn('slow');
   },
 
   destroy: function() {

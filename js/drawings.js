@@ -13,7 +13,7 @@ var drawings = {
 
     var font = 'Copperplate';
     var padding = 15;
-    var fontsize = 50;
+    var fontsize = 60;
     var fontcolor = 'blue';
 
     stage = new Kinetic.Stage({
@@ -346,7 +346,8 @@ var drawings = {
           radius: 10 + i * 2, //(i + 1) * 6,
           x: 20 + (Math.random() * (WIDTH - 40)),
           y: 20 + (Math.random() * (HEIGHT - 40)),
-          fillRGB: {r: shade, g: shade, b: shade},
+          // fillRGB: {r: 0, g: shade/5, b: shade},
+          fill: "#" + Math.floor(Math.random()*16777215).toString(16),
           stroke: 'black',
           strokeWidth: 1
         });
@@ -382,7 +383,7 @@ var drawings = {
         y: new_corner,
         width: new_width,
         height: new_height,
-        stroke: '#36454F',
+        stroke: "#" + Math.floor(Math.random()*16777215).toString(16),//'#36454F',
         strokeWidth: 10 
       })
       

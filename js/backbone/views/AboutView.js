@@ -9,14 +9,14 @@ app.AboutView = Backbone.View.extend({
 
   render: function() {
     var template = Handlebars.getTemplate('about');
+    this.$el.hide();
     this.$el.html(template());
-
-    // var $elem = this.$el;
-    // var tv = new app.TransView();
-    // tv.render('images/me-sepia.jpg', function() {
-    //   var template = Handlebars.getTemplate('about');
-    //   $elem.html(template());
-    // })
+    this.$el.fadeIn();
+    if (app.bg_view) {
+      app.bg_view.destroy()
+    }
+    app.bg_view = new app.BGView({bg: 'rect'});
+    app.bg_view.render()
   },
 
   destroy: function() {
