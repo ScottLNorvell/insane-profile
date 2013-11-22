@@ -1,5 +1,8 @@
 
 var drawings = {
+  // the nice color choices! Customizeable... So far, the blues
+  color_choices: ["#f7fbff","#deebf7","#c6dbef","#9ecae1","#6baed6","#4292c6","#2171b5","#08519c","#08306b"],
+
   drawHome: function() {
     var HEIGHT = window.innerHeight;
     var WIDTH = window.innerWidth;
@@ -11,10 +14,11 @@ var drawings = {
       lr: 'Experimental'
     };
 
-    var font = 'Copperplate';
+    var font = "Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif";
     var padding = 15;
     var fontsize = 60;
-    var fontcolor = 'blue';
+    var fontcolor = drawings.color_choices[8];
+    var font_style = "bold";
 
     stage = new Kinetic.Stage({
       container: 'stage-container',
@@ -68,6 +72,7 @@ var drawings = {
         text: contents.ul,
         fontSize: fontsize,
         fontFamily: font,
+        fontStyle: font_style,
         fill: fontcolor
       }),
 
@@ -77,6 +82,7 @@ var drawings = {
         text: contents.ll,
         fontSize: fontsize,
         fontFamily: font,
+        fontStyle: font_style,
         fill: fontcolor
       }),
 
@@ -86,6 +92,7 @@ var drawings = {
         text: contents.ur,
         fontSize: fontsize,
         fontFamily: font,
+        fontStyle: font_style,
         fill: fontcolor
       }),
 
@@ -95,14 +102,16 @@ var drawings = {
         text: contents.lr,
         fontSize: fontsize,
         fontFamily: font,
+        fontStyle: font_style,
         fill: fontcolor
       })
     }
+
     // Re-position text based on width after generated
     texts.ur.setX(WIDTH - texts.ur.getWidth() - padding);
     texts.lr.setX(WIDTH - texts.lr.getWidth() - padding);
 
-
+    // add click events to texts!
     $.each(texts, function(i,v) {
       v.on('click', function() {
         growAway(i);
@@ -115,10 +124,9 @@ var drawings = {
       y: HEIGHT/2 - 50,
       width: 100,
       height: 100,
-      fill: 'green',
+      fill: drawings.color_choices[8],
       stroke: 'black',
-      strokeWidth: 4//,
-      // draggable: true
+      strokeWidth: 4
     });
 
     var lassos = {
@@ -171,15 +179,15 @@ var drawings = {
     // add groups to layers, layers to stages!
     meGroup.add(me);
 
-    $.each(lassos, function(k, v) {
-      meGroup.add(v);
+    $.each(lassos, function(k, lasso) {
+      meGroup.add(lasso);
     });
 
     // add the shape to the layer
     layer.add(meGroup);
 
-    $.each(texts, function(k, v) {
-      textGroup.add(v)
+    $.each(texts, function(k, text) {
+      textGroup.add(text)
     });
 
     layer.add(textGroup);
@@ -332,7 +340,7 @@ var drawings = {
     var WIDTH = window.innerWidth;
     var layers = ['layer1', 'layer2', 'layer3', 'layer4', 'layer5', 'layer6']
     $.each(layers, function(i) {
-      var colors = [1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0];
+      var colors = drawings.color_choices;
       var stage = new Kinetic.Stage({
         container: layers[i],
         width: WIDTH,
@@ -340,14 +348,14 @@ var drawings = {
       });
       var layer = new Kinetic.Layer();
 
-      $.each(colors, function() {
+      $.each(colors.concat(colors), function(j, color) {
         var shade = Math.floor(Math.random() * 255)
         var circle = new Kinetic.Circle({
           radius: 10 + i * 2, //(i + 1) * 6,
           x: 20 + (Math.random() * (WIDTH - 40)),
           y: 20 + (Math.random() * (HEIGHT - 40)),
           // fillRGB: {r: 0, g: shade/5, b: shade},
-          fill: "#" + Math.floor(Math.random()*16777215).toString(16),
+          fill: color,
           stroke: 'black',
           strokeWidth: 1
         });
@@ -383,7 +391,7 @@ var drawings = {
         y: new_corner,
         width: new_width,
         height: new_height,
-        stroke: "#" + Math.floor(Math.random()*16777215).toString(16),//'#36454F',
+        stroke: drawings.color_choices[ 8 - i ],//'#36454F',
         strokeWidth: 10 
       })
       

@@ -26,7 +26,6 @@ app.Router = Backbone.Router.extend({
   },
   
   about: function() {
-    console.log('about!')
     if (app.about_view) {
       app.about_view.destroy()
     }
@@ -36,7 +35,6 @@ app.Router = Backbone.Router.extend({
   },
 
   apps: function() {
-    console.log('apps!')
     if (app.apps_view) {
       app.apps_view.destroy()
     }
@@ -46,7 +44,6 @@ app.Router = Backbone.Router.extend({
   },
 
   blog: function() {
-    console.log('blog!');
     if (app.blog_view) {
       app.blog_view.destroy()
     }
@@ -56,7 +53,6 @@ app.Router = Backbone.Router.extend({
   },
 
   experimental: function() {
-    console.log('experimental!')
     if (app.experimental_view) {
       app.experimental_view.destroy()
     }

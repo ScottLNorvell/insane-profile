@@ -2,7 +2,38 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: helvetica;
+	color: #414A4C;
 }
+
+nav {
+	position: relative;
+	width: 100%;
+	margin-left: 0px;
+	z-index: 100;
+
+}
+
+nav ul {
+	list-style: none;
+	padding-left: 0px;
+	float: right;
+	margin: 0px;
+	background-color: rgba(248,248,255,.95);
+	border-radius: 10px;
+	padding: 2px;
+}
+
+nav ul li {
+	display: inline;
+	padding-right: 20px;
+	letter-spacing: 1px;
+}
+
+nav ul li:last-child {
+	padding-right: 0px;
+}
+
+
 
 #bg-container, #trans-container {
 	position: absolute;
@@ -14,10 +45,6 @@ body {
 	position: absolute;
 	top: 0;
 	left: 0;
-/*	width: 1000px;
-	height: 1000px;*/
-	/*background: url('http://th09.deviantart.net/images3/PRE/i/2004/150/e/d/WallNotebookPaper.jpg');*/
-	/*background-color: #222;*/
 	z-index: 10000;
 }
 
@@ -28,11 +55,10 @@ body {
 	z-index: 1000;
 }
 
-img {
-  display: block;
-  width: 100%;
-}
 
+/*===========================================================
+******** PARALLAX STYLING
+=============================================================*/
 .scene {
   /*max-width: 500px;*/
   margin: 0;
@@ -71,13 +97,44 @@ img {
 	margin: 0 auto;
 	width: 50%;
 	height: 100%;
-	border: 10px dashed black;
-	background-color: rgba(255,255,255,.9);
+	border: 10px dashed #414A4C;
+	background-color: rgba(248,248,255,.8);
 	padding: 20px;
 
 }
 
-.box h1 {
-	position: relative;
-	margin: 0 auto;
+.box h1, .box p {
+	display: inline-block;
+	background-color: rgba(248,248,255,.95);
+	border-radius: 10px;
+	padding: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/*.box p {
+	display: inline-block;
+	background-color: rgba(248,248,255,.95);
+	border-radius: 10px;
+	padding: 2px;
+}*/
+
+a {
+	color: #414A4C;
+	text-decoration: underline;
+}
+
+a:hover {
+	color: #1B1B1B;
+	text-decoration: underline;
+}
+
+.contact-link, .nav-link {
+	color: #414A4C;
+	text-decoration: none;
+}
+
+.contact-link:hover, .nav-link:hover {
+	color: #1B1B1B;
+	text-decoration: underline;
 }
