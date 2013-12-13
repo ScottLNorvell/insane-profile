@@ -152,7 +152,12 @@ a:hover {
 }
 
 .see-resume {
-	position: relative;
+	position: absolute;
+	/*display: block;*/
+	top: 0px;
+	right: 10px;
+	/*width: 100%;*/
+	/*text-align: center;*/
 	z-index: 10010;
 	color: red;
 	font-size: .75em;
