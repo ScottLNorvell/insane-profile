@@ -162,3 +162,9 @@ a:hover {
 	color: red;
 	font-size: .75em;
 }
+
+.me-pic {
+	/*position: relative;*/
+	display: block;
+	margin: 0 auto;
+}
