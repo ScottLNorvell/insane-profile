@@ -150,3 +150,10 @@ a:hover {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+
+.see-resume {
+	position: relative;
+	z-index: 10010;
+	color: red;
+	font-size: .75em;
+}
