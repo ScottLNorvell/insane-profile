@@ -6,7 +6,7 @@ app.Router = Backbone.Router.extend({
   routes: {
     '': 'index', // root path (/)
     'about': 'about',
-    'apps': 'apps',
+    'projects': 'apps',
     'blog': 'blog',
     'experimental': 'experimental',
     'trans': 'transition'

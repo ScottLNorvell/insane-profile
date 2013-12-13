@@ -9,7 +9,7 @@ var drawings = {
     // menu text globals
     var contents = {
       ul: 'About',
-      ur: 'Apps',
+      ur: 'Projects',
       ll: 'Blog',
       lr: 'Experimental'
     };
@@ -278,7 +278,7 @@ var drawings = {
           y: tpos.y - padding/2
         });
         // Edit these colors!
-        lasso.setFill('yellow');
+        lasso.setFill(drawings.color_choices[3]);
         // texts[c].setFill('red');
         layer.draw();
         setTimeout(function() {

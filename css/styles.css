@@ -100,6 +100,8 @@ nav ul li:last-child {
 	border: 10px dashed #414A4C;
 	background-color: rgba(248,248,255,.8);
 	padding: 20px;
+	overflow: scroll;
+
 
 }
 
@@ -137,4 +139,14 @@ a:hover {
 .contact-link:hover, .nav-link:hover {
 	color: #1B1B1B;
 	text-decoration: underline;
+}
+
+.project-heading {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.project-techs {
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
