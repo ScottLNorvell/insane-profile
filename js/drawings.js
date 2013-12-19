@@ -115,6 +115,13 @@ var drawings = {
     $.each(texts, function(i,v) {
       v.on('click', function() {
         growAway(i);
+      });
+      v.on('mouseover', function() {
+        console.log('hovered!')
+        $('body').css('cursor', 'pointer');
+      });
+      v.on('mouseout', function() {
+        $('body').css('cursor', 'default');
       })
     })
 
@@ -127,6 +134,14 @@ var drawings = {
       fill: drawings.color_choices[8],
       stroke: 'black',
       strokeWidth: 4
+    });
+
+    me.on('mouseover', function() {
+      $('body').css('cursor', 'move');
+    });
+
+    me.on('mouseout', function() {
+      $('body').css('cursor', 'default');
     });
 
     var lassos = {
